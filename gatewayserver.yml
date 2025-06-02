@@ -1,15 +1,9 @@
-server:
-  port: 8070
-
 eureka:
   instance:
-    hostname: eurekaserver # Use the docker service name
+    preferIpAddress: true # This is fine
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    # THESE MUST BE TRUE
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
-      # This tells the server where to find its own endpoint.
       defaultZone: http://eurekaserver:8070/eureka/
-  server:
-    # This is good for development to clear out old services faster
-    waitTimeInMsWhenSyncEmpty: 0
